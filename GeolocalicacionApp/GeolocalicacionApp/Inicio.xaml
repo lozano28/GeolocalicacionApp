@@ -2,12 +2,39 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GeolocalicacionApp.Inicio">
-  <StackLayout Spacing="20" Padding="30">
-    <Button Text="¿Donde estoy?" Clicked="Button_OnClicked" BackgroundColor="Navy" 
-            TextColor="White" BorderRadius="20" BorderWidth="2" BorderColor="White"></Button>
-    <Label x:Name="txtLati" BackgroundColor="Blue" TextColor="White" XAlign="Center"></Label>
-    <Label x:Name="txtLong" BackgroundColor="Blue" TextColor="White" XAlign="Center"></Label>
-    <Button Text="Borrar localizacion" Clicked="Button_Delete" BackgroundColor="Navy" 
-            TextColor="White" BorderRadius="20" BorderWidth="2" BorderColor="White"></Button>
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="txt" TargetType="Label">
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="XAlign" Value="Center" />
+    </Style>
+    <Style x:Key="btnGeneral" TargetType="Button">
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="TextColor" Value="Yellow" />
+        <Setter Property="BackgroundColor" Value="Silver" />
+        <Setter Property="BorderWidth" Value="2" />
+        <Setter Property="BorderRadius" Value="20" />
+    </Style>
+    <Style x:Key="btnGrande" TargetType="Button" BasedOn="{StaticResource btnGeneral}">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <StackLayout>
+    <Label x:Name="lblTitle" Text="Geolocalización"></Label>
+    <Label x:Name="lblSubTitle" Text="Obtén tus coordenadas" Style="{StaticResource txt}"/>
+    <!--
+    <Label x:Name="lblCaption" Text="Geolocalizacion Caption" Style="{DynamicResource CaptionStyle}"></Label>
+    <Label x:Name="lblBody" Text="Geolocalizacion Body" Style="{DynamicResource BodyStyle}"></Label>
+    <Label x:Name="lblItemDetail" Text="Geolocalizacion Item Detail" Style="{DynamicResource ListItemDetailTextStyle}"></Label>
+    <Label x:Name="lblItemText" Text="Geolocalizacion Item Text" Style="{DynamicResource ListItemTextStyle}"></Label>
+    -->
+    <Button Text="¿Donde estoy?" Clicked="Button_OnClicked"  Style="{StaticResource btnGrande}"/>
+    <Label x:Name="txtLati" Style="{StaticResource txt}"></Label>
+    <Label x:Name="txtLong" Style="{StaticResource txt}"></Label>
+    <Button Text="Borrar localizacion" Clicked="Button_Delete" Style="{StaticResource btnGeneral}"/>
   </StackLayout>
 </ContentPage>
